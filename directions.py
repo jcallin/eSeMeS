@@ -1,3 +1,8 @@
+sourceKeyword = " from "
+destinationKeyword = " to "
+destinationSeperator = "with"
+googleMapsApiKey = 'AIzaSyAPBGZ_K6NGbWnCup_lLO8Tk1fR1m_M2SU'
+
 def getURL(source, destination, mode):
     url = 'https://maps.googleapis.com/maps/api/directions/json?origin='
     url += source
