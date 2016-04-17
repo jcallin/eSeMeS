@@ -19,7 +19,7 @@ def respond():
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
     userMessage = request.values.get( 'Body', None )
-    userPhoneNumber = request.values.get( 'From', None)
+    userPhoneNumber = str(request.values.get( 'From', None))
     print(userPhoneNumber)
 
     resp = twilio.twiml.Response()
