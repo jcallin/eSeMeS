@@ -5,6 +5,7 @@ def isAllowed(number):
     with open("Numbers.txt") as f:
         content = f.readlines()
         for line in content:
-            if number==line:
+            if number == line.strip("\n"):
                 allowed=True
+                return(allowed)
     return( allowed )          
