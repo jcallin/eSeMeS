@@ -5,13 +5,19 @@ import re
 def getYelp(command):
 
     lowerCom = command.lower()
-    searchType = re.findall(r'yelp(.*?)in', lowerCom, re.DOTALL)
+
+    searchType = re.findall(r'yelp (.*?) in', lowerCom, re.DOTALL)
+    searchKey=""
+    for t in searchType:
+        searchKey+=t
+    searchType=searchKey	
+    params = {
+            'term' : searchType
+            }
+
     keyword = 'in '
     before_key, keyword, after_key = lowerCom.partition(keyword)
     location = after_key
-
-    print(searchType)
-    print(location)
 
     auth = Oauth1Authenticator(
         consumer_key = "K3jA-KYhbkv2s0CyV6mIlA",
@@ -22,7 +28,7 @@ def getYelp(command):
 
     client = Client(auth)
 
-    response = client.search(location, searchType)
+    response = client.search(location, **params)
 
     out =""
     for x in range(0,3):
