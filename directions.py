@@ -58,8 +58,4 @@ def directions(command):
 
     source = mainCommand.split(sourceKeyword)[1].split(destinationKeyword)[0].strip()
     destination = mainCommand.split(destinationKeyword)[1].strip()
-    print( source )
-    print( destination )
-    print( mode )
     return(getDirections(source, destination, mode))
-

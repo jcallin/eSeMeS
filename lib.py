@@ -17,17 +17,10 @@ from placesNear import googlePlace
 
 ####Decide what kind of command has been inputted#####
 def directionCommand(command):
-    if "walking" in command: return True
-    elif "walk" in command: return True
-    elif "directions" in command: return True
-    elif "bicycling" in command: return True
-    elif "bike" in command: return True
-    elif "drive" in command: return True
-    elif "driving" in command: return True
-    elif "car" in command: return True
-    elif "train" in command: return True
-    elif "bus" in command: return True
-    elif "transit" in command: return True
+    commands = ["walking", "walk", "directions", "bike", "biking", "drive", "driving", "car", "route", "bus", "transit", "train"]
+    mode = command[0]
+    if mode in commands:
+        return True
     else: return False
 
 def dictionaryCommand(command):
@@ -53,7 +46,7 @@ def placesCommand(command):
         return False
 
 def helpCommand(command):
-    if command[0] == "help":
+    if command[0] == "?":
         return True
     else:
         return False
