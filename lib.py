@@ -5,6 +5,7 @@ import string
 import re
 import sys
 import time
+import wikipedia
 
 from datetime import datetime
 from directions import directions
@@ -63,8 +64,7 @@ def selectProcess(command):
 
     elif (wikiCommand(commandList)):
         print("You have inputted a wiki command")
-	return(searchWiki(command))
-
+        return(searchWiki(command))
 
     else:
         return ("Invalid query")
