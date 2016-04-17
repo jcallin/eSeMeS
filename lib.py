@@ -40,13 +40,13 @@ def newsCommand(command):
 
 ####Choose appropriate response based on command type####
 def selectProcess(command):
-    commandList = re.sub("[^\w]", " ",  commandInput.lower()).split()
+    #commandList = re.sub("[^\w]", " ",  commandInput.lower()).split()
     if (directionCommand(command)):
         print("you have inputted a directions command")
-        return directions(commandInput)
+        return(directions(command))
     elif(dictionaryCommand(command)):
         print("You have inputted a search command")
-        return dictionary(commandInput)
+        return(dictionary(command))
     elif(browseCommand(command)):
         print("You have inputted a browse command")
         #getBrowseResults function
@@ -54,5 +54,5 @@ def selectProcess(command):
         print("You have inputted a news command")
         #getNewsResults Function
     else:
-        print("Invalid query")
+        return ("Invalid query")
         #return invalid querey message
