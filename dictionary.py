@@ -11,17 +11,17 @@ def dictionary(command):
     print(word)
     try:
         if choice == "define":
-            print("Returning your definition of " + word)
-            definition = str(dictionary.getMeanings(word))
-            print(definition)
+            definition = str(dictionary.meaning(word))
             return(definition)
         elif choice == "synonyms":
             synonyms = dictionary.synonym(word)
             result = ', '.join(synonyms)
+            print(result)
             return result
         elif choice == "antonyms":
             antonyms = dictionary.antonym(word)
             result = ', '.join(antonyms)
+            print(result)
             return result
         else:
             return "Please retry your question"
