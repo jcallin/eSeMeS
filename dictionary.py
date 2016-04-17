@@ -5,18 +5,25 @@ def dictionary(command):
     words = command.split()
 
     choice = words[0]
-    word = words[1]
+    word = str(words[-1])
 
-    if choice == "define":
-        print("Returning your definition of " + word)
-        return dictionary.meaning(word)
-    elif choice == "synonym":
-        synonyms = dictionary.synonym(word)
-        result = ','.join(synonyms)
-        return result
-    elif choice == "antonym":
-        antonyms = dictionary.antonym(word)
-        result = ','.join(antonyms)
-        return result
-    else:
-        return "Please retry your question"
+    print(choice)
+    print(word)
+    try:
+        if choice == "define":
+            print("Returning your definition of " + word)
+            definition = str(dictionary.getMeanings(word))
+            print(definition)
+            return(definition)
+        elif choice == "synonyms":
+            synonyms = dictionary.synonym(word)
+            result = ', '.join(synonyms)
+            return result
+        elif choice == "antonyms":
+            antonyms = dictionary.antonym(word)
+            result = ', '.join(antonyms)
+            return result
+        else:
+            return "Please retry your question"
+    except TypeError:
+        return ("Your word had no " + choice)

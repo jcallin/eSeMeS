@@ -25,7 +25,8 @@ def directionCommand(command):
 
 def dictionaryCommand(command):
     if "define" in command: return True
-    elif "synonyms" in command: return True
+    if "synonyms" in command: return True
+    elif "antonyms" in command: return True
     else: return False
 
 def browseCommand(command):
