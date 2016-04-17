@@ -8,7 +8,6 @@ import re
 destinationSeperator="find "
 locationSeperator=" near "
 
-
 apiKey="AIzaSyA43esVZvcufle30_kihWbBG1RfJ5M1P60"
 
 def googlePlace(command):

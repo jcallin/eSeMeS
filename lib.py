@@ -40,7 +40,7 @@ def wikiCommand(command):
     else: return False
 
 def placesCommand(command):
-    if command[0] == "look" and command[1] == "for":
+    if command[0] == "find":
         return True
     else:
         return False
