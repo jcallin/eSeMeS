@@ -60,11 +60,9 @@ def selectProcess(command):
 
     elif(browseCommand(commandList)):
         print("You have inputted a browse command")
-        #getBrowseResults function
 
     elif (newsCommand(commandList)):
         print("You have inputted a news command")
-        #getNewsResults Function
 
     elif (wikiCommand(commandList)):
 	print("You have inputted a wiki command")
