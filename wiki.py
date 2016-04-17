@@ -7,10 +7,11 @@ def searchWiki( command ):
 
     page = wikipedia.page( words )
     content = page.summary
-    content = filter(lambda x: x in string.printable, content )
-
+    returnText = content[0:400]
+    content = filter(lambda x: x in string.printable, returnText)
     response=""
     for i in content:
         response += i
-    print( response )
+    response += "..." 
+
     return( response )

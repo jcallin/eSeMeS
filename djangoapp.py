@@ -2,7 +2,9 @@ from flask import Flask, request, redirect
 import twilio.twiml
 from twilio.rest import TwilioRestClient
 import os
+
 from lib import selectProcess
+from authenticate import isAllowed
 
 app = Flask(__name__)
 
@@ -17,9 +19,18 @@ def respond():
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
     userMessage = request.values.get( 'Body', None )
-    response = selectProcess( userMessage )
+    userPhoneNumber = request.values.get( 'From', None)
+
     resp = twilio.twiml.Response()
-    resp.message(response)
+
+    if(isAllowed(userPhoneNumber)):
+        ## Send raw user input for parsing and api use
+        response = selectProcess( userMessage )
+        resp.message(response)
+    else:
+        response = "Welcome to SMS, the premier web-surfing text message service!\n To gain access to our many features including Wikipedia lookup, Yelp, and Google Maps directions, please call 1-844-230-6122 to subscribe"
+        resp.message(response)
+
     return str(resp)
 
 if __name__ == "__main__":

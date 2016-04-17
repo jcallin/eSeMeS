@@ -12,6 +12,7 @@ from directions import directions
 from dictionary import dictionary
 from wiki import searchWiki
 from getYelp import getYelp
+from placesNear import googlePlace
 
 
 ####Decide what kind of command has been inputted#####
@@ -45,6 +46,13 @@ def wikiCommand(command):
         return True
     else: return False
 
+
+def placesCommand(command):
+    if command[0] == "look" and command[1] == "for":
+        return True
+    else:
+        return False
+
 ####Choose appropriate response based on command type####
 def selectProcess(command):
     #commandList = re.sub("[^\w]", " ",  commandInput.lower()).split()
@@ -65,6 +73,9 @@ def selectProcess(command):
     elif (wikiCommand(commandList)):
         print("You have inputted a wiki command")
         return(searchWiki(command))
+    elif(placesCommand(commandList)):
+        print("You have input a places lookup command")
+        return(googlePlace(command))
 
     else:
         return ("Invalid query")
