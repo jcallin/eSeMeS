@@ -42,7 +42,7 @@ def getDirections(source, destination, mode):
         dur = step["duration"]["text"]
         directions = step["html_instructions"]
         directions = re.sub("<[^>]*>", '', directions)
-        out += ("~" + str(dist) + "\n" + "> " + str(directions).strip("\n")
+        out += ("~" + str(dist) + "\n" + "> " + str(directions).strip("\n"))
         i = i + 1   
     return (out)
 
