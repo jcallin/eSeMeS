@@ -5,7 +5,7 @@ import json
 import requests
 import re
 
-destinationSeperator="look for "
+destinationSeperator="find "
 locationSeperator=" near "
 
 
@@ -14,7 +14,9 @@ apiKey="AIzaSyA43esVZvcufle30_kihWbBG1RfJ5M1P60"
 def googlePlace(command):
 
     types = command.split(locationSeperator)[0].split(destinationSeperator)[1]
+    print(types)
     zipCode = str(command.split(locationSeperator)[1])
+    print(zipCode)
 
     #making the url
     g = geocoder.google(zipCode)
@@ -55,7 +57,4 @@ def googlePlace(command):
         out +=("\n" + str(name) + "\n" + str(is_open) + "\n" + str(address) + "\n")
         i = i + 1
     
-    print(out)
     return(out)
-\
-
