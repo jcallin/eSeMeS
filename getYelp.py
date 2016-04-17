@@ -26,5 +26,5 @@ def getYelp(command):
 
     out =""
     for x in range(0,3):
-        out += str(x+1) + ". " + str(response.businesses[x].name) + "\n Address:" + str(response.businesses[x].location.display_address) + "\n Ratings:" + str(response.businesses[x].rating) + " with " + str(response.businesses[x].review_count) + " Reviews \n Phone:" + str(response.businesses[x].display_phone) + "\n"
+        out += str(x+1) + ". " + str(response.businesses[x].name) + "\n Address: " + str(response.businesses[x].location.display_address).strip('[]').replace("'","").replace(",","") + "\n Ratings: " + str(response.businesses[x].rating) + " with " + str(response.businesses[x].review_count) + " Reviews \n Phone: " + str(response.businesses[x].display_phone) + "\n"
     return(out)
