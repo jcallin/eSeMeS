@@ -20,12 +20,11 @@ def respond():
 
     userMessage = request.values.get( 'Body', None )
     userPhoneNumber = str(request.values.get( 'From', None))
-    print(userPhoneNumber)
 
     resp = twilio.twiml.Response()
 
+    ## Check if the user is subscribed
     if(isAllowed(userPhoneNumber)):
-        ## Send raw user input for parsing and api use
         response = selectProcess( userMessage )
         resp.message(response)
     else:

@@ -46,12 +46,22 @@ def wikiCommand(command):
         return True
     else: return False
 
-
 def placesCommand(command):
     if command[0] == "look" and command[1] == "for":
         return True
     else:
         return False
+
+def helpCommand(command):
+    if command[0] == "help":
+        return True
+    else:
+        return False
+
+def printHelp():
+    return ("Directions: '[mode] from [location] to [destination]'\nWikipedia: 'wiki [search term]'\nYelp lookup: 'yelp [service] in [location]'\nService lookup: 'find [service] near [zip]'\nRemember to use keywords!")
+
+    
 
 ####Choose appropriate response based on command type####
 def selectProcess(command):
@@ -59,24 +69,26 @@ def selectProcess(command):
     commandList = command.lower().split()
 
     if (directionCommand(commandList)):
-        print("you have inputted a directions command")
+        print("you have input a directions command")
         return(directions(command))
 
     elif(dictionaryCommand(commandList)):
-        print("You have inputted a dictionary command")
+        print("You have input a dictionary command")
         return(dictionary(command))
 
     elif(yelpCommand(commandList)):
-        print("You have inputted a yelp command")
+        print("You have input a yelp command")
         return(getYelp(command))
 
     elif (wikiCommand(commandList)):
-        print("You have inputted a wiki command")
+        print("You have input a wiki command")
         return(searchWiki(command))
     elif(placesCommand(commandList)):
         print("You have input a places lookup command")
         return(googlePlace(command))
+    elif(helpCommand(commandList)):
+        print("You have input a help command")
+        return(printHelp())
 
     else:
-        return ("Invalid query")
-        #return invalid querey message
+        return ("We didn't understand your search, see if this helps:\n" + printHelp())
