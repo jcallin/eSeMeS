@@ -8,6 +8,7 @@ def dictionary(command):
     word = words[1]
 
     if choice == "define":
+        print("Returning your definition of " + word)
         return dictionary.meaning(word)
     elif choice == "synonym":
         synonyms = dictionary.synonym(word)
