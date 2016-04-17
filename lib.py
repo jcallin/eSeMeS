@@ -43,10 +43,10 @@ def selectProcess(command):
     commandList = re.sub("[^\w]", " ",  commandInput.lower()).split()
     if (directionCommand(command)):
         print("you have inputted a directions command")
-        directions(commandInput)
+        return directions(commandInput)
     elif(dictionaryCommand(command)):
         print("You have inputted a search command")
-        dictionary(commandInput)
+        return dictionary(commandInput)
     elif(browseCommand(command)):
         print("You have inputted a browse command")
         #getBrowseResults function

@@ -2,7 +2,7 @@ from flask import Flask, request, redirect
 import twilio.twiml
 from twilio.rest import TwilioRestClient
 import os
-from lib import directions
+from lib import selectProcess
 
 app = Flask(__name__)
 
@@ -17,8 +17,7 @@ def respond():
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
     userMessage = request.values.get( 'Body', None )
-    response = directions( userMessage )
-
+    response = selectProcess( userMessage )
     resp = twilio.twiml.Response()
     resp.message(response)
     return str(resp)
