@@ -1,3 +1,13 @@
+import googlemaps
+import json
+import requests
+import string
+import re
+import sys
+import time
+
+from datetime import datetime
+
 sourceKeyword = " from "
 destinationKeyword = " to "
 destinationSeperator = "with"
@@ -56,7 +66,8 @@ def directions(command):
     #    if "fewer_ransfers" in options: routePreference = "fewer_transfers"
 
 
-    return(getDirections(source, destination))
+    directionMessage = getDirections(source, destination)
+    return(directionMessage)
         #def onDirectionsReturned(mssg):
         #mssgs = splitIntoMultipleMsgs(mssg)
         #sendResponse(mssg)
