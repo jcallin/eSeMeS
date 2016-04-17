@@ -11,6 +11,7 @@ from datetime import datetime
 from directions import directions
 from dictionary import dictionary
 from wiki import searchWiki
+from getYelp import getYelp
 
 
 ####Decide what kind of command has been inputted#####
@@ -34,25 +35,20 @@ def dictionaryCommand(command):
     elif "antonyms" in command: return True
     else: return False
 
-def browseCommand(command):
-    if "http://" in command: return True
-    elif "browse" in command: return True
-    else: return False
-
-def newsCommand(command):
-    if "news" in command: return True
-    elif "update" in command: return True
+def yelpCommand(command):
+    if command[0].lower() == "yelp":
+        return True 
     else: return False
 
 def wikiCommand(command):
-    if "wiki" in command: return True
-    elif "wikipedia" in command: return True
+    if command[0] == "wiki" or command[0] == "wikipedia":
+        return True
     else: return False
 
 ####Choose appropriate response based on command type####
 def selectProcess(command):
     #commandList = re.sub("[^\w]", " ",  commandInput.lower()).split()
-    commandList = command.split()
+    commandList = command.lower().split()
 
     if (directionCommand(commandList)):
         print("you have inputted a directions command")
@@ -62,8 +58,9 @@ def selectProcess(command):
         print("You have inputted a dictionary command")
         return(dictionary(command))
 
-    elif(browseCommand(commandList)):
-        print("You have inputted a browse command")
+    elif(yelpCommand(commandList)):
+        print("You have inputted a yelp command")
+        return(getYelp(command))
 
     elif (wikiCommand(commandList)):
         print("You have inputted a wiki command")
