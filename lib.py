@@ -41,16 +41,17 @@ def newsCommand(command):
 ####Choose appropriate response based on command type####
 def selectProcess(command):
     #commandList = re.sub("[^\w]", " ",  commandInput.lower()).split()
-    if (directionCommand(command)):
+    commandList = command.split()
+    if (directionCommand(commandList)):
         print("you have inputted a directions command")
         return(directions(command))
-    elif(dictionaryCommand(command)):
+    elif(dictionaryCommand(commandList)):
         print("You have inputted a search command")
-        return(dictionary(command))
+        return(dictionary(commandList))
     elif(browseCommand(command)):
         print("You have inputted a browse command")
         #getBrowseResults function
-    elif (newsCommand(command)):
+    elif (newsCommand(commandList)):
         print("You have inputted a news command")
         #getNewsResults Function
     else:
