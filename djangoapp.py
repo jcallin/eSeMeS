@@ -4,7 +4,7 @@ from twilio.rest import TwilioRestClient
  
 app = Flask(__name__)
 
-def send_message();
+def send_message():
     client.messages.create(
         to=userNumber,
         from_=OUR_NUMBER,
@@ -19,12 +19,10 @@ AUTH_TOKEN = "[99426e30a3c5c2e25d5ba56f9087b7c3]"
 OUR_NUMBER = "+18442306122"
 
 #needs to be a string
-userNumber= request.values.get( 'From', None )
+userNumber= request.values.get('From', None)
 
 @app.route("/", methods=['GET', 'POST'])
-
-client = TwilioRestClient( ACCOUNT_SID, AUTH_TOKEN )
-
+client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 while true:
     clientMessages = client.messages.list( to=OUR_NUMBER )
     for m in clientMessages:
