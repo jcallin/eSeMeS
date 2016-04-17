@@ -16,6 +16,6 @@ twilio==5.4.0
 urllib3==1.10.4
 virtualenv==15.0.1
 wheel==0.24.0
-googlemaps=2.4.3
-json=2.0.9
-request=2.9.1
+googlemaps==2.4.3
+json==2.0.9
+request==2.9.1
