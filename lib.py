@@ -61,8 +61,9 @@ def selectProcess(command):
     elif(browseCommand(commandList)):
         print("You have inputted a browse command")
 
-    elif (newsCommand(commandList)):
-        print("You have inputted a news command")
+    elif (wikiCommand(commandList)):
+        print("You have inputted a wiki command")
+	return(searchWiki(command))
 
     else:
         return ("Invalid query")
