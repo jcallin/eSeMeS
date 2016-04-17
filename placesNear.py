@@ -12,10 +12,9 @@ apiKey="AIzaSyA43esVZvcufle30_kihWbBG1RfJ5M1P60"
 
 def googlePlace(command):
 
+    command = command.lower()
     types = command.split(locationSeperator)[0].split(destinationSeperator)[1]
-    print(types)
     zipCode = str(command.split(locationSeperator)[1])
-    print(zipCode)
 
     #making the url
     g = geocoder.google(zipCode)
@@ -43,7 +42,7 @@ def googlePlace(command):
     out = "Nearby:\n"
     i = 1
 
-    if(len(results) >=11):maxResults = 10
+    if(len(results) >=6):maxResults = 5 
     else: maxResults=len(results)
     
     for i in range(0,maxResults):

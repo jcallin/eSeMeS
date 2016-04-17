@@ -14,8 +14,7 @@ from wiki import searchWiki
 from getYelp import getYelp
 from placesNear import googlePlace
 
-
-####Decide what kind of command has been inputted#####
+####Decide what kind of command has been inputed#####
 def directionCommand(command):
     commands = ["walking", "walk", "directions", "bike", "biking", "drive", "driving", "car", "route", "bus", "transit", "train"]
     mode = command[0]
@@ -60,6 +59,7 @@ def printHelp():
 def selectProcess(command):
     #commandList = re.sub("[^\w]", " ",  commandInput.lower()).split()
     commandList = command.lower().split()
+    command = command.lower()
 
     if (directionCommand(commandList)):
         print("you have input a directions command")
