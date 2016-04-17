@@ -29,7 +29,7 @@ def respond():
         response = selectProcess( userMessage )
         resp.message(response)
     else:
-        response = "Welcome to SMS, the premier web-surfing text message service!\n To gain access to our many features including Wikipedia lookup, Yelp, and Google Maps directions, please call 1-844-230-6122 to subscribe"
+        response = "Welcome to SMS, the premier web-surfing text message service!\nTo gain access to our many features including Wikipedia lookup, Yelp, and Google Maps directions, please call 1-844-230-6122 and subscribe"
         resp.message(response)
 
     return str(resp)
