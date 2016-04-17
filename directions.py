@@ -15,8 +15,11 @@ def getURL(source, destination, mode):
     return (url)
 
 def getDirections(source, destination, mode):
+    print( "test1" )
     url = getURL(source, destination, mode)
+    print( "test2" )
     r = requests.get(url)   
+    print( "test3" )
     obj = r.json()
     status = obj["status"]
     if status != "OK":
