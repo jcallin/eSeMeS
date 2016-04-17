@@ -14,12 +14,12 @@ def dictionary(command):
             definition = str(dictionary.meaning(word))
             return(definition)
         elif choice == "synonyms":
-            synonyms = dictionary.synonym(word)
+            synonyms = dictionary.synonym(word, "html5lib")
             result = ', '.join(synonyms)
             print(result)
             return result
         elif choice == "antonyms":
-            antonyms = dictionary.antonym(word)
+            antonyms = dictionary.antonym(word, "html5lib")
             result = ', '.join(antonyms)
             print(result)
             return result
