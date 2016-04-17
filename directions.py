@@ -25,11 +25,8 @@ def getURL(source, destination, mode):
     return (url)
 
 def getDirections(source, destination, mode):
-    print( "test1" )
     url = getURL(source, destination, mode)
-    print( "test2" )
     r = requests.get(url)   
-    print( "test3" )
     obj = r.json()
     status = obj["status"]
     if status != "OK":
@@ -45,7 +42,7 @@ def getDirections(source, destination, mode):
         dur = step["duration"]["text"]
         directions = step["html_instructions"]
         directions = re.sub("<[^>]*>", '', directions)
-        out += ("~" + str(dist) + "\n" + str(dur) + "--> " + str(directions))
+        out += ("~" + str(dist) + "\n" + "> " + str(directions))
         i = i + 1   
     return (out)
 
