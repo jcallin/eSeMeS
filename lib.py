@@ -9,6 +9,7 @@ import time
 from datetime import datetime
 from directions import directions
 from dictionary import dictionary
+from wiki import searchWiki
 
 
 ####Decide what kind of command has been inputted#####
@@ -39,6 +40,11 @@ def newsCommand(command):
     elif "update" in command: return True
     else: return False
 
+def wikiCommand(command):
+    if "wiki" in command: return True
+    elif "wikipedia" in command: return True
+    else: return False
+
 ####Choose appropriate response based on command type####
 def selectProcess(command):
     #commandList = re.sub("[^\w]", " ",  commandInput.lower()).split()
@@ -59,6 +65,10 @@ def selectProcess(command):
     elif (newsCommand(commandList)):
         print("You have inputted a news command")
         #getNewsResults Function
+
+    elif (wikiCommand(commandList)):
+	print("You have inputted a wiki command")
+	return(searchWiki(command))
 
     else:
         return ("Invalid query")
