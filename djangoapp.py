@@ -20,6 +20,7 @@ def respond():
 
     userMessage = request.values.get( 'Body', None )
     userPhoneNumber = request.values.get( 'From', None)
+    print(userPhoneNumber)
 
     resp = twilio.twiml.Response()
 
