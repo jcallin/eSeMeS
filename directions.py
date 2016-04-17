@@ -1,29 +1,16 @@
-import googlemaps
-import json
-import requests
-import string
-import re
-import sys
-import time
-
-from datetime import datetime
-
-sourceKeyword = " from "
-destinationKeyword = " to "
-destinationSeperator = "with"
-googleMapsApiKey = 'AIzaSyAPBGZ_K6NGbWnCup_lLO8Tk1fR1m_M2SU'
-
-def getURL(source, destination):
+def getURL(source, destination, mode):
     url = 'https://maps.googleapis.com/maps/api/directions/json?origin='
     url += source
     url += "&destination="
     url += destination
+    url += "&mode="
+    url += mode
     url += "&key="
     url += "AIzaSyAPBGZ_K6NGbWnCup_lLO8Tk1fR1m_M2SU"
     return (url)
 
-def getDirections(source, destination):
-    url = getURL(source, destination)
+def getDirections(source, destination, mode):
+    url = getURL(source, destination, mode)
     r = requests.get(url)   
     obj = r.json()
     status = obj["status"]
@@ -41,36 +28,21 @@ def getDirections(source, destination):
         directions = step["html_instructions"]
         directions = re.sub("<[^>]*>", '', directions)
         out += ("~" + str(dist) + "\n" + str(dur) + "--> " + str(directions))
-        i = i + 1
-    print(out)    
+        i = i + 1   
     return (out)
+
 
 def directions(command):
     commandParts = command.split(destinationSeperator)
     mainCommand = commandParts[0]
     mode = mainCommand.split(sourceKeyword)[0].strip()
+    if (mode == "walk" or mode == "walking"): mode = "walking"
+    elif(mode == "bike" or mode == "bicycling"): mode = "bicycling"
+    elif(mode == "bus" or mode == "train" or mode == "buses" or mode =="trains" or mode == "transit"): mode = "transit"
+    else: mode = "driving"
+
     source = mainCommand.split(sourceKeyword)[1].split(destinationKeyword)[0].strip()
     destination = mainCommand.split(destinationKeyword)[1].strip()
-    print(source)
-    print(destination)
 
-    #if (commandParts[1]):
-    #   options = commandParts[1]
-
-    #if(options):
-    #    if "alternatives" in options: alternatives = True
-    #    else: alternaives = False
-
-    #    if "less_walking" in options: routePreference = "less_walking"
-
-    #    if "fewer_ransfers" in options: routePreference = "fewer_transfers"
-
-
-    directionMessage = getDirections(source, destination)
-    return(directionMessage)
-        #def onDirectionsReturned(mssg):
-        #mssgs = splitIntoMultipleMsgs(mssg)
-        #sendResponse(mssg)
-    
-#steps = getDirections(mode, source, destination, alternatives, arrivalTime, departureTime, routePrefernce, googleMapsApiKey, onDirectionsReturned)
+    return(getDirections(source, destination, mode))
 

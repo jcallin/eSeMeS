@@ -23,6 +23,9 @@ def directionCommand(command):
     elif "drive" in command: return True
     elif "driving" in command: return True
     elif "car" in command: return True
+    elif "train" in command: return True
+    elif "bus" in command: return True
+    elif "transit" in command: return True
     else: return False
 
 def dictionaryCommand(command):
