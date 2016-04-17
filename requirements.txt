@@ -19,3 +19,11 @@ wheel==0.24.0
 googlemaps==2.4.3
 PyDictionary==1.5.0
 wikipedia==1.4.0
+Click==6.6
+goslate==1.5.1
+pyasn1==0.1.9
+pyasn1-modules==0.0.8
+rsa==3.4.2
+simplejson==3.8.2
+
+
