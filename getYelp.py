@@ -4,9 +4,10 @@ import re
 
 def getYelp(command):
 
-    searchType = re.findall(r'yelp(.*?)in', command, re.DOTALL)
+    lowerCom = command.lower()
+    searchType = re.findall(r'yelp(.*?)in', lowerCom, re.DOTALL)
     keyword = 'in '
-    before_key, keyword, after_key = command.partition(keyword)
+    before_key, keyword, after_key = lowerCom.partition(keyword)
     location = after_key
 
     print(searchType)
@@ -26,4 +27,4 @@ def getYelp(command):
     out =""
     for x in range(0,3):
         out += str(x+1) + ". " + str(response.businesses[x].name) + "\n Address:" + str(response.businesses[x].location.display_address) + "\n Ratings:" + str(response.businesses[x].rating) + " with " + str(response.businesses[x].review_count) + " Reviews \n Phone:" + str(response.businesses[x].display_phone) + "\n"
-    return(0, out)
+    return(out)
