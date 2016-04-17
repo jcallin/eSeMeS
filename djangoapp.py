@@ -2,6 +2,7 @@ from flask import Flask, request, redirect
 import twilio.twiml
 from twilio.rest import TwilioRestClient
 import os
+from lib import directions
 
 app = Flask(__name__)
 
@@ -15,7 +16,8 @@ def respond():
 
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
-    response = request.values.get( 'Body', None )
+    userMessage = request.values.get( 'Body', None )
+    response = directions( userMessage )
 
     resp = twilio.twiml.Response()
     resp.message(response)
