@@ -11,7 +11,7 @@ from datetime import datetime
 sourceKeyword = " from "
 destinationKeyword = " to "
 destinationSeperator = "with"
-googleMapsApiKey = 'AIzaSyAPBGZ_K6NGbWnCup_lLO8Tk1fR1m_M2SU'
+googleMapsApiKey = "YOUR GOOGLE MAPS API KEY"
 
 def getURL(source, destination, mode):
     url = 'https://maps.googleapis.com/maps/api/directions/json?origin='
@@ -21,7 +21,7 @@ def getURL(source, destination, mode):
     url += "&mode="
     url += mode
     url += "&key="
-    url += "AIzaSyAPBGZ_K6NGbWnCup_lLO8Tk1fR1m_M2SU"
+    url += "YOUR GOOGLE MAPS API KEY"
     return (url)
 
 def getDirections(source, destination, mode):

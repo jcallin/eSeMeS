@@ -8,7 +8,7 @@ import re
 destinationSeperator="find "
 locationSeperator=" near "
 
-apiKey="AIzaSyA43esVZvcufle30_kihWbBG1RfJ5M1P60"
+apiKey="YOUR GOOGLE API KEY"
 
 def googlePlace(command):
 
@@ -19,7 +19,7 @@ def googlePlace(command):
     #making the url
     g = geocoder.google(zipCode)
 
-    AUTH_KEY = "AIzaSyAPBGZ_K6NGbWnCup_lLO8Tk1fR1m_M2SU"
+    AUTH_KEY = "YOUR GOOGLE AUTH KEY"
     LOCATION = str(g.latlng[0]) + "," + str(g.latlng[1])
     RADIUS = 1000
     TYPES = types

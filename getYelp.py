@@ -20,10 +20,10 @@ def getYelp(command):
     location = after_key
 
     auth = Oauth1Authenticator(
-        consumer_key = "K3jA-KYhbkv2s0CyV6mIlA",
-        consumer_secret="diBeghuLf7knopMFnJxQ3vSMbLw",
-        token="yr2pBamMJg2BIskLLl_iPFBNPD8eHdp_",
-        token_secret="ARmHnRkwhOKNAUvx-OPQlc2GSXc"
+        consumer_key = "YOUR AUTH KEY",
+        consumer_secret="YOUR AUTH KEY",
+        token="YOUR TOKEN",
+        token_secret="YOUR TOKEN SECRET",
     )
 
     client = Client(auth)

@@ -11,9 +11,9 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 
 def respond():
-    ACCOUNT_SID = "ACe892e28b309a94844845c5f621ca451a"
-    AUTH_TOKEN = "99426e30a3c5c2e25d5ba56f9087b7c3"
-    OUR_NUMBER = "+18442306122"
+    ACCOUNT_SID = "YOUR TWILIO SID",
+    AUTH_TOKEN = "YOUR TWILIO AUTH TOKEN",
+    OUR_NUMBER = "YOUR TWILIO PHONE NUMBER",
 
 
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
