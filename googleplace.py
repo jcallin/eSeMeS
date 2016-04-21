@@ -8,9 +8,7 @@ import re
 destinationSeperator="find "
 locationSeperator=" near "
 
-apiKey="YOUR GOOGLE API KEY"
-
-def googlePlace(command):
+def GooglePlace(command, google_authkeys):
 
     command = command.lower()
     types = command.split(locationSeperator)[0].split(destinationSeperator)[1]
@@ -19,7 +17,7 @@ def googlePlace(command):
     #making the url
     g = geocoder.google(zipCode)
 
-    AUTH_KEY = "YOUR GOOGLE AUTH KEY"
+    AUTH_KEY = google_authkeys["GOOGLE_API_KEY"]
     LOCATION = str(g.latlng[0]) + "," + str(g.latlng[1])
     RADIUS = 1000
     TYPES = types
@@ -42,15 +40,18 @@ def googlePlace(command):
     out = "Nearby:\n"
     i = 1
 
-    if(len(results) >=6):maxResults = 5 
-    else: maxResults=len(results)
+    if(len(results) >=6):
+        maxResults = 5 
+    else: 
+        maxResults=len(results)
     
     for i in range(0,maxResults):
         name = obj["results"][i]["name"]
         if('opening_hours' in obj["results"][i]):
             is_open = returnOpen(obj["results"][i]["opening_hours"]["open_now"])
-        else: is_open = "Hours Unknown"
-        address=  (obj["results"][i]["vicinity"])
+        else:
+            is_open = "Hours Unknown"
+        address =  (obj["results"][i]["vicinity"])
         
         out +=("\n" + str(name) + "\n" + str(is_open) + "\n" + str(address) + "\n")
         i = i + 1

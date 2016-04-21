@@ -12,7 +12,7 @@ from directions import directions
 from dictionary import dictionary
 from wiki import searchWiki
 from getYelp import getYelp
-from placesNear import googlePlace
+from googleplace import GooglePlace
 
 '''
 This file contains functions which decide which type of query is being sent and which function to call 
@@ -90,7 +90,7 @@ def selectProcess(command, authkeys):
 
     elif(placesCommand(commandList)):
         print("You have input a places lookup command")
-        return(googlePlace(command, google_authkeys))
+        return(GooglePlace(command, google_authkeys))
 
     elif(helpCommand(commandList)):
         print("You have input a help command")
