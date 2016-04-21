@@ -15,6 +15,8 @@ def respond():
 
     # Replace  authkeys.json with your authkeys json file name
     # An example json file for storing authkeys is shown in the repository
+    # This json object is loaded into our application driver and sent as
+    # a parameter to functions so they do not have to reload it
     with open('authkeys.json') as authkeys_file:
         authkeys = json.load(authkeys_file)
 
@@ -32,7 +34,7 @@ def respond():
 
     ## Check if the user is subscribed
     if(isAllowed(userPhoneNumber)):
-        response = selectProcess( userMessage )
+        response = selectProcess(userMessage, authkeys)
         resp.message(response)
     else:
         response = "Welcome to SMS, the premier web-surfing text message service!\nTo gain access to our many features including Wikipedia lookup, Yelp, and Google Maps directions, please call 1-844-230-6122 and subscribe"
