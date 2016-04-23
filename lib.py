@@ -8,10 +8,10 @@ import time
 import wikipedia
 
 from datetime import datetime
-from directions import directions
+from directions import Directions
 from dictionary import dictionary
-from wiki import searchWiki
-from getYelp import getYelp
+from wiki import SearchWiki
+from get_yelp import Yelp
 from googleplace import GooglePlace
 
 '''
@@ -73,27 +73,21 @@ def selectProcess(command, authkeys):
     yelp_authkeys = authkeys["yelp"]
 
     if (directionCommand(commandList)):
-        print("you have input a directions command")
-        return(directions(command, google_authkeys))
+        return(Directions(command, google_authkeys))
 
     elif(dictionaryCommand(commandList)):
-        print("You have input a dictionary command")
         return(dictionary(command))
 
     elif(yelpCommand(commandList)):
-        print("You have input a yelp command")
-        return(getYelp(command, yelp_authkeys))
+        return(Yelp(command, yelp_authkeys))
 
     elif (wikiCommand(commandList)):
-        print("You have input a wiki command")
-        return(searchWiki(command))
+        return(SearchWiki(command))
 
     elif(placesCommand(commandList)):
-        print("You have input a places lookup command")
         return(GooglePlace(command, google_authkeys))
 
     elif(helpCommand(commandList)):
-        print("You have input a help command")
         return(printHelp())
 
     else:

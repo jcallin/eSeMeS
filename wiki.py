@@ -1,7 +1,7 @@
 import wikipedia
 import string
 
-def searchWiki( command ):
+def SearchWiki( command ):
     keyword = command.split()[0]
     words = command.split(keyword)[1]
 
