@@ -2,7 +2,7 @@ from yelp.client import Client
 from yelp.oauth1_authenticator import Oauth1Authenticator
 import re
 
-def getYelp(command):
+def getYelp(command, yelp_authkeys):
 
     lowerCom = command.lower()
 
@@ -20,10 +20,10 @@ def getYelp(command):
     location = after_key
 
     auth = Oauth1Authenticator(
-        consumer_key = "YOUR AUTH KEY",
-        consumer_secret="YOUR AUTH KEY",
-        token="YOUR TOKEN",
-        token_secret="YOUR TOKEN SECRET",
+        consumer_key = yelp_authkeys["CONSUMER_KEY"], 
+        consumer_secret= yelp_authkeys["CONSUMER_SECRET"],
+        token = yelp_authkeys["TOKEN"],
+        token_secret = yelp_authkeys["TOKEN_SECRET"]
     )
 
     client = Client(auth)
