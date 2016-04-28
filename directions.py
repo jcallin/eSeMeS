@@ -11,9 +11,8 @@ from datetime import datetime
 sourceKeyword = " from "
 destinationKeyword = " to "
 destinationSeperator = "with"
-googleMapsApiKey = "YOUR GOOGLE MAPS API KEY"
 
-def getURL(source, destination, mode):
+def getURL(source, destination, mode, google_authkeys):
     url = 'https://maps.googleapis.com/maps/api/directions/json?origin='
     url += source
     url += "&destination="
@@ -21,11 +20,11 @@ def getURL(source, destination, mode):
     url += "&mode="
     url += mode
     url += "&key="
-    url += "YOUR GOOGLE MAPS API KEY"
+    url += google_authkeys["GOOGLE_API_KEY"]
     return (url)
 
-def getDirections(source, destination, mode):
-    url = getURL(source, destination, mode)
+def getDirections(source, destination, mode, google_authkeys):
+    url = getURL(source, destination, mode, google_authkeys)
     r = requests.get(url)   
     obj = r.json()
     status = obj["status"]
@@ -47,7 +46,7 @@ def getDirections(source, destination, mode):
     return (out)
 
 
-def directions(command):
+def Directions(command, google_authkeys):
     commandParts = command.split(destinationSeperator)
     mainCommand = commandParts[0]
     mode = mainCommand.split(sourceKeyword)[0].strip()
@@ -58,4 +57,5 @@ def directions(command):
 
     source = mainCommand.split(sourceKeyword)[1].split(destinationKeyword)[0].strip()
     destination = mainCommand.split(destinationKeyword)[1].strip()
-    return(getDirections(source, destination, mode))
+    directions = getDirections(source, destination, mode, google_authkeys)
+    return(directions)

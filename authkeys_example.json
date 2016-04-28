@@ -1,0 +1,16 @@
+{
+        "twilio" : {
+                "ACCOUNT_SID" : "",
+                "AUTH_TOKEN" : "",
+                "OUR_NUMBER" : ""
+        },
+        "yelp" : {
+                "CONSUMER_KEY" : "",
+                "CONSUMER_SECRET" : "",
+                "TOKEN" : "",
+                "TOKEN_SECRET" : ""
+        },
+        "google" :{
+                "GOOGLE_API_KEY" : ""
+        }
+}

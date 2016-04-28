@@ -2,6 +2,7 @@ from flask import Flask, request, redirect
 import twilio.twiml
 from twilio.rest import TwilioRestClient
 import os
+import json
 
 from lib import selectProcess
 from authenticate import isAllowed
@@ -11,9 +12,17 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 
 def respond():
-    ACCOUNT_SID = "YOUR TWILIO SID",
-    AUTH_TOKEN = "YOUR TWILIO AUTH TOKEN",
-    OUR_NUMBER = "YOUR TWILIO PHONE NUMBER",
+
+    # Replace  authkeys.json with your authkeys json file name
+    # An example json file for storing authkeys is shown in the repository
+    # This json object is loaded into our application driver and sent as
+    # a parameter to functions so they do not have to reload it
+    with open('authkeys.json') as authkeys_file:
+        authkeys = json.load(authkeys_file)
+
+    ACCOUNT_SID = authkeys["twilio"]["ACCOUNT_SID"]
+    AUTH_TOKEN = authkeys["twilio"]["AUTH_TOKEN"]
+    OUR_NUMBER = authkeys["twilio"]["OUR_NUMBER"]
 
 
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
@@ -25,7 +34,7 @@ def respond():
 
     ## Check if the user is subscribed
     if(isAllowed(userPhoneNumber)):
-        response = selectProcess( userMessage )
+        response = selectProcess(userMessage, authkeys)
         resp.message(response)
     else:
         response = "Welcome to SMS, the premier web-surfing text message service!\nTo gain access to our many features including Wikipedia lookup, Yelp, and Google Maps directions, please call 1-844-230-6122 and subscribe"
