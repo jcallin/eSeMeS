@@ -1,7 +1,7 @@
-# eSeMeS
+# ESEMES
 ##Bronco Hack 2016 project which implements web search through text message
 
-###Set up a webserver to handle textmessages with Twilio
+###Set up a webserver to handle text messages with Twilio:
 Create a Twilio account and acquire a Twilio phone number to send text messages. Push our project to a webserver. Insert your API authkeys into authkeys.json for Yelp and Google, and Twilio. Add your phone number in a line at the top of Numbers.txt.  Set up your Twilio phone number to forward all text messages it receives to your webserver's address. Run djangoapp.py on the webserver and send a text message to your Twilio number.
 
 ###Try it out:
