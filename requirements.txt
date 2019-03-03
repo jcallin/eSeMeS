@@ -13,7 +13,7 @@ pyxdg==0.25
 requests==2.20.0
 six==1.8.0
 twilio==5.4.0
-urllib3==1.10.4
+urllib3==1.23
 virtualenv==15.0.1
 wheel==0.24.0
 googlemaps==2.4.3
