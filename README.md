@@ -14,6 +14,9 @@ Currently, we implement 4 query types: directions, wikipedia, yelp, and services
 Directions: `[Mode] from [location] to [destination]`
 --Example "Driving from san jose to santa barbara"
 
+Wikipedia: `[wiki/wikipedia] [topic]`
+--Example "Driving from san jose to santa barbara"
+
 Yelp: `Yelp [service] in [location]`
 --Example "Yelp sushi in San Jose"
 
