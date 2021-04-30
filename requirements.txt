@@ -23,7 +23,7 @@ Click==6.6
 goslate==1.5.1
 pyasn1==0.1.9
 pyasn1-modules==0.0.8
-rsa==3.4.2
+rsa==4.7
 simplejson==3.8.2
 yelp==1.0.1
 python-google-places==1.1.0
