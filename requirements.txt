@@ -15,7 +15,7 @@ six==1.8.0
 twilio==5.4.0
 urllib3==1.23
 virtualenv==15.0.1
-wheel==0.24.0
+wheel==0.38.1
 googlemaps==2.4.3
 PyDictionary==1.5.0
 wikipedia==1.4.0
